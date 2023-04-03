@@ -1,7 +1,7 @@
 import tkinter as tk
 root=tk.Tk()                                                                            #make a new window
 root.title('This is the Tk class')                                                      #change the window's name
-root.geometry('300x300')                                                                #change the window's size
+root.geometry('300x350')                                                                #change the window's size
 t=tk.StringVar(value='This is an Entry')                                                #used for storing value in textbox
 i=tk.IntVar(value=0)                                                                    #used for storing value of radiobutton
 b=tk.BooleanVar(value=False)                                                            #used for storing value of checkbutton 1
@@ -14,6 +14,7 @@ radiobutton=tk.Radiobutton(root,text='This is a Radiobutton',value=1,variable=i)
 radiobutton2=tk.Radiobutton(root,text='This is also a Radiobutton',value=2,variable=i)  #make radiobutton 2
 entry=tk.Entry(root,textvariable=t)                                                     #make the textbox
 label=tk.Label(root,text='This is a Label')                                             #make a label
+scale=tk.Scale(root, from_=0, to=500, orient=tk.HORIZONTAL,label='This is a Scale')     #make a slider with minimum value 0 and maximum value 500
 def submit():                                                                           #when the button is pressed, it will run this function
     print('Checkbutton 1 value: '+str(b.get()))                                         #print if the checkbutton 1 is pressed
     print('Checkbutton 2 value: '+str(b2.get()))                                        #print if the checkbutton 2 is pressed
@@ -22,6 +23,7 @@ def submit():                                                                   
     else:                                                                               #if one of the options has been selected
         print('Radiobutton '+str(i.get())+' was selected')
     print(t.get())                                                                      #print whatever text is in the textbox
+    print(scale.get())                                                                  #print whatever number is on the slider
     print('---------------')
 button=tk.Button(root,text='This is a Button',command=submit)                           #make the button
 button.pack()                                                                           #place the button on the window
@@ -32,4 +34,5 @@ radiobutton.pack()                                                              
 radiobutton2.pack()                                                                     #place radiobutton 2 on the window
 entry.pack()                                                                            #place the textbox on the window
 label.pack()                                                                            #place the label on the window
+scale.pack()                                                                            #place the slider on the window
 root.mainloop()                                                                         #display the window
